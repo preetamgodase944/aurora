@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import QRCodeDisplay from './QRCodeDisplay';
 
-const ContactSection = ({ companyInfo }) => {
+const ContactSection = ({companyInfo}) => {
   return (
     <section id="contact" className="contact-section">
       <div className="container">
@@ -9,7 +9,7 @@ const ContactSection = ({ companyInfo }) => {
           <h2 className="contact-title">Get In Touch</h2>
           <p className="contact-subtitle">Ready to start your project? Contact us today for a consultation</p>
         </div>
-
+        
         <div className="contact-grid">
           <div className="contact-card">
             <div className="contact-icon contact-icon-blue">
@@ -23,7 +23,7 @@ const ContactSection = ({ companyInfo }) => {
               {companyInfo.phones[1]}
             </a>
           </div>
-
+          
           <div className="contact-card">
             <div className="contact-icon contact-icon-green">
               <Mail size={28} />
@@ -33,7 +33,7 @@ const ContactSection = ({ companyInfo }) => {
               {companyInfo.email}
             </a>
           </div>
-
+          
           <div className="contact-card">
             <div className="contact-icon contact-icon-purple">
               <MapPin size={28} />
@@ -46,7 +46,7 @@ const ContactSection = ({ companyInfo }) => {
         <div className="qr-section">
           <h3 className="qr-title">Scan to View Location on Google Maps</h3>
           <div className="qr-single">
-            <QRCodeDisplay
+            <QRCodeDisplay 
               data={companyInfo.googleMapsLink}
               label="Open in Google Maps"
             />

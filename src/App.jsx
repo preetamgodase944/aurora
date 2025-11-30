@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Factory, Droplet, Wind, Flame, ChevronRight, Menu, X } from 'lucide-react';
+import { Factory, Droplet, Wind, Flame } from 'lucide-react';
 import './App.css';
 import Footer from './component/Footer';
 import ContactSection from './component/ContactSection';
@@ -89,14 +89,28 @@ const servicesData = [
 ];
 
 const companyInfo = {
-  name: 'BGK Industry',
+  name: 'AURORA',
   tagline: 'Excellence in Surface Treatment & Coating Solutions',
   description: 'Leading provider of comprehensive industrial coating services, delivering quality finishes with cutting-edge technology and expert craftsmanship.',
   phones: ['9731948010', '7676129196'],
   email: 'bgkindustry4@gmail.com',
   address: '418/760/41, behind SBI BANK, Kannika Nagar, DINNE, Kachanayakanahalli, Bommasandra, Bengaluru, Karnataka 560099',
-  googleMapsLink: 'https://maps.google.com/?q=418/760/41,behind+SBI+BANK,Kannika+Nagar,DINNE,Kachanayakanahalli,Bommasandra,Bengaluru,Karnataka+560099'
+  googleMapsLink: 'https://maps.google.com/?q=418/760/41,behind+SBI+BANK,Kannika+Nagar,DINNE,Kachanayakanahalli,Bommasandra,Bengaluru,Karnataka+560099',
+  logoUrl: 'https://i.postimg.cc/sXJ7nM63/aurora-logo.png' // Replace with actual logo URL
 };
+
+const aboutData = {
+  title: "Why Choose Aurora?",
+  text: "With years of expertise in industrial surface treatment and coating applications, we deliver exceptional quality through advanced technology and meticulous attention to detail.",
+  features: [
+    'State-of-the-art coating facilities',
+    'Experienced technical team',
+    'Quality-assured processes',
+    'Environmentally conscious operations',
+    'Custom solutions for diverse industries'
+  ]
+};
+
 
 const App = () => {
   return (
@@ -110,7 +124,8 @@ const App = () => {
       <ServicesGrid
         servicesData={servicesData}
       />
-      <AboutSection />
+      <AboutSection aboutData={aboutData} />
+
       <ContactSection
         companyInfo={companyInfo}
       />

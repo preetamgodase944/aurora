@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Factory, Menu, X } from 'lucide-react';
+import auroraLogo from '../assets/logo.png';
 
 const Header = ({ companyInfo }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,9 +10,10 @@ const Header = ({ companyInfo }) => {
             <nav className="nav-container">
                 <div className="nav-content">
                     <div className="logo">
-                        <Factory className="logo-icon" />
+                        <img src={auroraLogo} className="logo-image" />
                         <span className="logo-text">{companyInfo.name}</span>
                     </div>
+
 
                     <div className="nav-links">
                         <a href="#services" className="nav-link">Services</a>
