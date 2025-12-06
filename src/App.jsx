@@ -92,8 +92,8 @@ const companyInfo = {
   name: 'AURORA',
   tagline: 'Excellence in Surface Treatment & Coating Solutions',
   description: 'Leading provider of comprehensive industrial coating services, delivering quality finishes with cutting-edge technology and expert craftsmanship.',
-  phones: ['9731948010', '7676129196'],
-  email: 'bgkindustry4@gmail.com',
+  phones: ['+91 9731948010', '+91 7676129196'],
+  email: 'Marketing@aurorasurfacecoating.com',
   address: '418/760/41, behind SBI BANK, Kannika Nagar, DINNE, Kachanayakanahalli, Bommasandra, Bengaluru, Karnataka 560099',
   googleMapsLink: 'https://maps.google.com/?q=418/760/41,behind+SBI+BANK,Kannika+Nagar,DINNE,Kachanayakanahalli,Bommasandra,Bengaluru,Karnataka+560099',
   logoUrl: 'https://i.postimg.cc/sXJ7nM63/aurora-logo.png' // Replace with actual logo URL
