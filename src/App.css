@@ -825,3 +825,280 @@ body {
     margin-top: 2rem;
   }
 }
+/* --- GALLERY SECTION (Horizontal Scroll Version) --- */
+.gallery-section {
+  padding: 5rem 0;
+  background: white;
+  overflow: hidden; /* Hide scrollbar spillover */
+}
+
+/* Header layout for Title + Buttons */
+.gallery-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Navigation Buttons */
+.gallery-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.gallery-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #8B5CF6;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid #e5e7eb;
+}
+
+.gallery-btn:hover {
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+  border-color: transparent;
+}
+
+/* The Horizontal Scroll Area */
+.gallery-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 2rem; /* Space for shadow/scrollbar */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Makes cards snap into place */
+  
+  /* Hide Scrollbar for cleaner look */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* The Individual Card */
+.gallery-item {
+  flex: 0 0 auto; /* Don't shrink, stay fixed size */
+  width: 300px;
+  height: 400px; /* Taller portrait aspect ratio looks better for scrolling */
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #f3f4f6;
+  scroll-snap-align: start; /* Snap alignment */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+/* Matches your Service Card Rainbow Border on Hover */
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899, #F59E0B, #10B981);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+/* Overlay Gradient */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 14, 39, 0.9) 0%, rgba(10, 14, 39, 0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text Styles to match your theme */
+.gallery-category {
+  color: #F59E0B; /* Orange/Gold from your gradients */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.gallery-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Video specific */
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  background: black;
+  position: relative;
+}
+
+.gallery-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(139, 92, 246, 0.8); /* Purple tint */
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.gallery-click-hint {
+  color: #d1d5db;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.video-click-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
+/* The Full Screen Overlay */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 1000; /* Highest priority */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close Button */
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.2s;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+.lightbox-close:hover {
+  transform: rotate(90deg);
+  background: rgba(255,255,255,0.2);
+  color: #EC4899; /* Pink from your gradient */
+}
+
+/* The Container for Image/Video */
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh; /* Increased slightly */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;           /* NEW */
+  flex-direction: column;  /* NEW */
+  background: white;       /* Ensure background is white */
+}
+
+.lightbox-media {
+  width: 100%;
+  flex: 1;           /* NEW: Takes up remaining space */
+  min-height: 0;     /* NEW: Allows it to shrink below its natural height */
+  object-fit: contain; /* Ensures the whole image is visible without stretching */
+  background: black;   /* Nice backdrop for non-square images */
+}
+
+/* 3. Ensure the info box doesn't get squashed */
+.lightbox-info {
+  background: white;
+  padding: 1.5rem;
+  text-align: left;
+  flex-shrink: 0; /* NEW: Prevents text from being crushed */
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, #8B5CF6, #EC4899, #F59E0B) 1;
+}
+
+.lightbox-category {
+  color: #8B5CF6; /* Purple */
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-title {
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

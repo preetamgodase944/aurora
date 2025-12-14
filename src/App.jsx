@@ -7,6 +7,7 @@ import AboutSection from './component/AboutSection';
 import ServicesGrid from './component/ServicesGrid';
 import HeroSection from './component/HeroSection';
 import Header from './component/Header';
+import GallerySection from './component/GallerySection';
 
 // Data Layer
 const servicesData = [
@@ -81,9 +82,13 @@ const servicesData = [
         description: 'Climate-controlled environment for consistent coating quality'
       },
       {
+        name: 'Mezzanine',
+        description: 'For space maximization and versatile applications'
+      },
+      {
         name: 'Conveyor System',
         description: 'Automated material handling for efficient production flow'
-      }
+      },
     ]
   }
 ];
@@ -107,7 +112,8 @@ const aboutData = {
     'Experienced technical team',
     'Quality-assured processes',
     'Environmentally conscious operations',
-    'Custom solutions for diverse industries'
+    'Custom solutions for diverse industries',
+    'On time project execution',
   ]
 };
 
@@ -123,6 +129,8 @@ const App = () => {
       />
       <ServicesGrid
         servicesData={servicesData}
+      />
+      <GallerySection
       />
       <AboutSection aboutData={aboutData} />
 
